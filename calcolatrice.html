@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+body {
+    margin: auto;
+    text-align: center;
+	}
+	#calc{
+    margin: auto;
+	}
+	#calc input {
+        width:40px;
+        height:40px;
+        margin:auto;
+        font-size:15px;
+        border:none;
+      }
+td {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    background-color:#ccc
+	}
+	 #calcolatrice{
+        background-color:#eee;
+        width:fit-content;
+        padding:10px 5px;
+        box-shadow:1px 1px 7px #999;
+        margin:auto;
+ .area {
+    width:166px;
+    height:30px;
+    padding:2px;
+    text-align:right;
+    font-size:20px
+	}
+</style>
+</head>
+<body>
+
+<h2>CALCULATOR</h2>
+
+<div id="calcolatrice">
+      <form name="form">
+        <input class="area" name="area" value="" placeholder="0">
+        <table id="calc">
+          <tr>
+            <td><input type="button" value="C" onclick="reset()"></td>
+            <td><input type="button" value="<--" onclick="cancella();"></td>
+            <td><input type="button" value="/" onclick="get('/');"></td>
+            <td><input type="button" value="x" onclick="get('*');"></td>
+          </tr>       
+          <tr>
+            <td><input type="button" value="7" onclick="get(7);"></td>
+            <td><input type="button" value="8" onclick="get(8);"></td>
+            <td><input type="button" value="9" onclick="get(9);"></td>
+            <td><input type="button" value="-" onclick="get('-');"></td>
+          </tr>      
+          <tr>
+            <td><input type="button" value="4" onclick="get(4);"></td>
+            <td><input type="button" value="5" onclick="get(5);"></td>
+            <td><input type="button" value="6" onclick="get(6);"></td>
+            <td><input type="button" value="+" onclick="get('+');"></td>
+          </tr>      
+          <tr>
+            <td><input type="button" value="1" onclick="get(1);"></td>
+            <td><input type="button" value="2" onclick="get(2);"></td>
+            <td><input type="button" value="3" onclick="get(3);"></td>
+            <td rowspan="2"><input style="height:84px" type="button" value="=" onclick="risultato();"></td>
+          </tr>  
+          <tr>
+            <td><input type="button" value="0" onclick="get(0);" ></td>
+            <td><input type="button" value="00" onclick="get('00');"></td>
+            <td><input type="button" value=","onclick="get('.');"></td>
+          </tr>  
+        </table>
+      </form>
+    </div>
+        <script>
+      function get(value){
+		document.form.area.value+=value;
+		if(document.form.area.value.length>3)
+		risultato();
+      }
+      function risultato() {
+        var c = document.form.area.value;
+        if (c){
+          document.form.area.value = eval(c);
+        }
+      }
+
+      function reset() {
+        document.form.area.value = '';
+      }
+
+      function cancella() {
+        var a = document.form.area.value;
+        document.form.area.value = a.substring(0, a.length-1);
+      }
+    </script>
+</body>
+</html>
