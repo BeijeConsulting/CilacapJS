@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>CALCULATOR</h2>
+
+<h3 id="display">___</h3>
+
+<table>
+  <tr>
+    <td id="t1" onclick="get(1)">1</td>
+    <td id="t2" onclick="get(2)">2</td>
+    <td id="t3" onclick="get(3)">3</td>
+    <td onclick="get('+')">+</td>
+  </tr>
+  <tr>
+    <td id="t4" onclick="get(4)">4</td>
+    <td id="t5" onclick="get(5)">5</td>
+    <td id="t6" onclick="get(6)">6</td>
+    <td onclick="get('-')">-</td>
+  </tr>
+  <tr>
+    <td id="t7" onclick="get(7)">7</td>
+    <td id="t8" onclick="get(8)">8</td>
+    <td id="t9" onclick="get(9)">9</td>
+    <td onclick="get('x')">x</td>
+  </tr>
+  <tr>
+    <td id="tAC" onclick="get('AC')">AC</td>
+    <td id="t0" onclick="get(0)">0</td>
+    <td id="tComma" onclick="get(',')">,</td>
+    <td onclick="get('/')">/</td>
+  </tr>
+   <tr>
+    <td onclick="get('=')">=</td>
+  </tr>
+</table>
+
+
+<script>
+var risultato = '';
+var numero='';
+var risultatoParziale=0;
+var operazione=[];
+var num=[];
+
+function get(valore) {
+	  if (valore != 'AC'){
+	  
+		switch(valore){
+		 
+		case 'x':	
+					if (operazione !== undefined && !(operazione.length == 0)) {
+					
+					op=operazione.pop();
+					get(op);
+					}
+					if (num !==undefined && !(num.length==0)){
+					numero=num.pop();
+					risultatoParziale= risultatoParziale*parseFloat(numero);
+					console.log(risultatoParziale);
+					numero='';
+					}
+					operazione=[valore];
+					risultato=String(risultatoParziale)+'x';
+
+					
+					break;
+					
+		case'/':	
+					if (operazione !== undefined && !(operazione.length == 0)) {
+					op=operazione.pop();
+					get(op);
+					}
+					if (num !==undefined && !(num.length==0)){
+					numero=num.pop();
+					risultatoParziale= risultatoParziale/parseFloat(numero);
+					console.log(risultatoParziale);
+					numero='';
+					}
+					operazione=[valore];
+					risultato=String(risultatoParziale)+'/';
+
+					break;
+					
+		case'+':	
+					if (operazione !== undefined && !(operazione.length == 0)) {
+					
+					op=operazione.pop();
+					get(op);
+					}		
+					
+					if (num !==undefined && !(num.length==0)){
+					numero=num.pop();
+					console.log(numero);
+					risultatoParziale= risultatoParziale+parseFloat(numero);
+					console.log(risultatoParziale);
+					numero='';
+					}
+					operazione=[valore];
+					risultato=String(risultatoParziale)+'+';
+
+					break;
+					
+		case '-':
+					if (operazione !== undefined && !(operazione.length == 0)) {
+					
+					op=operazione.pop();
+					get(op);
+					}
+					if (num !==undefined && !(num.length==0)){
+					numero=num.pop();
+					risultatoParziale= risultatoParziale-parseFloat(numero);
+					console.log(risultatoParziale);
+					numero='';
+					}
+					
+					operazione=[valore];
+					risultato=String(risultatoParziale)+'-';
+
+					break; 
+		
+		case '=':  
+					if (operazione !== undefined && !(operazione.length == 0)) {
+					
+					op=operazione.pop();
+					get(op);
+					}
+					risultato=risultatoParziale;
+					risultatoParziale=0;
+					numero='';
+					break;
+	 
+					
+					
+					
+		
+		default :	if(valore===',')
+					numero=numero+'.';
+					else	
+					numero=numero+valore;
+					
+					risultato=String(numero);
+					num[0]=parseFloat(numero);
+					break;	
+		}
+	}
+		else{
+			risultato = '';
+			risultatoParziale=0;
+			numero='';
+			}
+document.getElementById("display").innerHTML = risultato;
+	
+console.log(risultato);
+}
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
