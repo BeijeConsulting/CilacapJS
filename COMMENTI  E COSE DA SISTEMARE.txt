@@ -1,0 +1,4 @@
+Bisogna perfezionare il controllo che viene fatto nella funzione get.
+Solo il controllo document.form.area.value.length>3 funziona ma è limitativo a soli i numeri ad 1 cifra. 
+Una volta che si raggiungono numeri a 2 o + cifre la calcolatrice funziona cmq ma non + come vorrei
+in quanto non fa + vedere all'utente a+b ma solo il risultato, rendendo inutile la funzione back.
