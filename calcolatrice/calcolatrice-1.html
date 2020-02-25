@@ -66,10 +66,10 @@
 			function get(valore) {
 				switch(valore) {
 					case 'AC':
-						risultato = 0;
-						numeroPrec = 0;
-						numeroSucc = 0;
+						numeroPrec = '';
+						numeroSucc = '';
 						operazione = '';
+						dot = 0;
 						break;
 					
 					case '+':
@@ -99,7 +99,7 @@
 						if(dot === 0)
 							numeroSucc = numeroSucc*10 + valore;
 						else{
-							numeroSucc = numeroSucc + valore / Math.pow(10, dot);
+							numeroSucc = numeroSucc + valore * Math.pow(10, -dot);
 							dot++;
 						}
 						break;
