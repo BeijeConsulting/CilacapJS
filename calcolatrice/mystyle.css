@@ -1,0 +1,48 @@
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+  color: #6cacc5;
+  background-color: #6acca7
+}
+
+.content {
+            margin:auto;
+        }
+.tasto {
+            background-color: #a5cff3 ;
+            color: #175c97;
+            font-size: 22pt;
+            border: none;
+            margin: 4px 2px;
+            height: 40px;
+	          width: 46px;
+        }
+
+.display {
+            background: black;
+            color: #175c97;
+            font-size: 24pt;
+            border: #175c97 solid 2px;
+            margin: 4px 2px;
+            width: 204px;
+            height: 40px;            
+        }
+
+table {
+  margin: auto;
+  background-color: red;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.uguale{
+  width: 200px;
+}
+

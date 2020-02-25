@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <link rel="stylesheet" type="text/css" href="mystyle.css">
+ <title>Gabriele's Calculator</title>
+</head>
+
+<body>
+
+  <h2>GABRIELE'S CALCULATOR</h2>
+
+  <!-- <h3 id="display">___</h3> -->
+  <script src="myscript.js"></script>
+    <input type="text" name="expression" id="espressioni" readonly="readonly" class="display">
+    <input type="text" name="display" id="operazioni" readonly="readonly" class="display">
+
+    <table class="content">
+      <tr class="tasto">
+        <td id="1" onclick="get(this.id)">1</td>
+        <td id="2" onclick="get(this.id)">2</td>
+        <td id="3" onclick="get(this.id)">3</td>
+        <td id="+" onclick="getOp('+')">+</td>
+      </tr>
+      <tr class="tasto">
+        <td id="4" onclick="get(4)">4</td>
+        <td id="5" onclick="get(5)">5</td>
+        <td id="6" onclick="get(6)">6</td>
+        <td id="-" onclick="getOp(this.id)">-</td>
+      </tr>
+      <tr class="tasto">
+        <td id="7" onclick="get(this.id)">7</td>
+        <td id="8" onclick="get(this.id)">8</td>
+        <td id="9" onclick="get(this.id)">9</td>
+        <td id="*" onclick="getOp(this.id)">x</td>
+      </tr>
+      <tr class="tasto">
+        <td id="AC" onclick="cancellaOperazioni();cancellaEspressioni()">C</td>
+        <td id="0" onclick="get(this.id)">0</td>
+        <td id="." onclick="get(this.id)">,</td>
+        <td id="/" onclick="getOp(this.id)">/</td>
+      </tr>
+    </table>
+      <button value="=" onclick="operazione();" class="tasto uguale">=</button> </td>      
+</body>
+
+</html>
