@@ -1,27 +1,29 @@
-const mov = 5;
-
-let player = document.getElementById("player");
-
 //JSON JavaScript Object Notation
+var player = document.getElementById("player");
+const mov = 5;
+  let left = 0;
+  let t0p = 0;
+
 let props = {
   width: 100,
   height: 100
 };
 
 function changeProps() {
+  var player = document.getElementById("player");
   player.style.width = props.width + "px";
   player.style.height = props.height + "px";
 }
 
 changeProps();
 
-let left = 0;
-let t0p = 0;
-function getKeyCod() {
+function getKeyCode() {
+  
+  
   let key = window.event.keyCode;
   console.log(key);
-  console.log(player.offsetTop);
-  console.log(player.offsetLeft);
+  //console.log(player.offsetTop);
+  //console.log(player.offsetLeft);
   //187: +; 189: -
   //37/65:sx 38/87:up 39/68:dx 40/83:down
   if (key === 39 || key === 68) {
@@ -46,3 +48,10 @@ function getKeyCod() {
     changeProps();
   }
 }
+
+
+
+
+
+
+

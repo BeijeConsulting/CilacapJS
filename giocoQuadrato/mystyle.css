@@ -1,7 +1,29 @@
 body {
-	margin: 0 0 0 0;
+  margin: 0 0 0 0;
+  
 }
-.cube {
-	background-color: #FF0000;
-	position: absolute;
+.player {
+  position: absolute;  
+  width: 300px;
+  height: 100px;
+}
+
+.line {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 15px;
+  background-color: #4b9fdb;
+  position: inherit;
+}
+
+.load-wrapp {
+  float: left;
+  width: 100px;
+  height: 100px;
+  margin: 0 10px 10px 0;
+  padding: 20px 20px 20px;
+  border-radius: 5px;
+  text-align: center;
+  position: inherit;
 }
