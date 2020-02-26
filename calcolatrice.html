@@ -103,6 +103,18 @@ function operation(operator) {
 			newNum='';
 			document.getElementById("display").value=""; 
 			lastOp=operator;
+		}
+		else if (lastOp === "-"){
+			operation("-");	 
+			lastOp='/';			
+		}
+		else if (lastOp === "*"){
+			operation("*");	
+			lastOp='/';
+		}
+		else if (lastOp === "+"){
+			operation("+");	
+			lastOp='/';
 		}else{
 			ris = parseInt(ris) / parseInt(newNum);
 			newNum = '';
@@ -123,6 +135,18 @@ function operation(operator) {
 			newNum='';
 			document.getElementById("display").value=""; 
 			lastOp=operator;
+		}
+		else if (lastOp === "+"){
+			operation("+");	 
+			lastOp='-';			
+		}
+		else if (lastOp === "*"){
+			operation("*");	
+			lastOp='-';
+		}
+		else if (lastOp === "/"){
+			operation("/");	
+			lastOp='-';
 		}else{
 			ris = parseInt(ris) - parseInt(newNum);
 			newNum = '';
@@ -143,6 +167,18 @@ function operation(operator) {
 			newNum='';
 			document.getElementById("display").value=""; 
 			lastOp=operator;
+		}
+		else if (lastOp === "-"){
+			operation("-");	 
+			lastOp='+';			
+		}
+		else if (lastOp === "*"){
+			operation("*");	
+			lastOp='+';
+		}
+		else if (lastOp === "/"){
+			operation("/");	
+			lastOp='+';
 		}else{
 			ris = parseInt(ris) + parseInt(newNum);
 			newNum = '';
@@ -163,6 +199,18 @@ function operation(operator) {
 			newNum='';
 			document.getElementById("display").value=""; 
 			lastOp=operator;
+		}
+		else if (lastOp === "+"){
+			operation("+");	 
+			lastOp='*';			
+		}
+		else if (lastOp === "-"){
+			operation("-");	
+			lastOp='*';
+		}
+		else if (lastOp === "/"){
+			operation("/");	
+			lastOp='*';
 		}else{
 			ris = parseInt(ris) * parseInt(newNum);
 			newNum = '';
