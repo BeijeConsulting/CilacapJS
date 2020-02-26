@@ -1,0 +1,233 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>CALCULATOR</h2>
+
+    <input type="text" name="display" id="display" readonly="readonly" class="display">
+
+    <table class="content">
+      <tr class="tasto">
+        <td id="1" onclick="get(this.id)">1</td>
+        <td id="2" onclick="get(this.id)">2</td>
+        <td id="3" onclick="get(this.id)">3</td>
+        <td id="+" onclick="operation(this.id)">+</td>
+      </tr>
+      <tr class="tasto">
+        <td id="4" onclick="get(this.id)">4</td>
+        <td id="5" onclick="get(this.id)">5</td>
+        <td id="6" onclick="get(this.id)">6</td>
+        <td id="-" onclick="operation(this.id)">-</td>
+      </tr>
+      <tr class="tasto">
+        <td id="7" onclick="get(this.id)">7</td>
+        <td id="8" onclick="get(this.id)">8</td>
+        <td id="9" onclick="get(this.id)">9</td>
+        <td id="*" onclick="operation(this.id)">x</td>
+      </tr>
+      <tr class="tasto">
+        <td id="AC" onclick="deleteAll()">C</td>
+        <td id="0" onclick="get(this.id)">0</td>
+        <td id="tComma" onclick="get(this.id)">,</td>
+        <td id="/" onclick="operation(this.id)">/</td>
+      </tr>
+	  <tr>
+		<td id="=" size="2" onclick="operation(this.id)" >=</td>
+		<td id="(" onclick="get(this.id)">(</td>
+		<td id=")" onclick="get(this.id)">)</td>
+	  </tr>
+	  <tr>
+		<td id="v2" onclick="radix(2)">V^2</td>
+		<td id="v3" onclick="radix(3)">V^3</td>
+		<td id="Pot2" onclick="elevate(2)">e^2</td>
+		<td id="Pot3" onclick="elevate(3)">e^3</td>
+	  </tr>
+    </table>
+         
+	  
+</body>
+
+
+<script>
+var ris=0;
+var newNum='';
+var lastOp='';
+var bool=false;
+
+
+function get(valore) {
+	if (bool!=false){
+		document.getElementById("display").value="";
+		document.getElementById("display").value+=valore;
+		bool=false;
+	}
+	else
+		document.getElementById("display").value+=valore;
+	newNum += valore;
+}
+
+function operation(operator) {
+
+	if (operator === "/"){
+		if (lastOp===''){
+			ris = parseInt(newNum);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else if (lastOp==='='){
+			ris = parseInt(ris);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else{
+			ris = parseInt(ris) / parseInt(newNum);
+			newNum = '';
+			bool = true;
+			document.getElementById("display").value=ris; 
+		}
+	}
+	if (operator === "-"){
+		if (lastOp===''){
+			ris = parseInt(newNum);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else if (lastOp==='='){
+			ris = parseInt(ris);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else{
+			ris = parseInt(ris) - parseInt(newNum);
+			newNum = '';
+			bool = true;
+			document.getElementById("display").value=ris; 
+		}
+	}
+	if (operator === "+"){
+		if (lastOp===''){
+			ris = parseInt(newNum);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else if (lastOp==='='){
+			ris = parseInt(ris);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else{
+			ris = parseInt(ris) + parseInt(newNum);
+			newNum = '';
+			bool = true;
+			document.getElementById("display").value=ris; 
+		}
+	}
+	if (operator === "*"){
+		if (lastOp===''){
+			ris = parseInt(newNum);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else if (lastOp==='='){
+			ris = parseInt(ris);
+			console.log(ris);
+			newNum='';
+			document.getElementById("display").value=""; 
+			lastOp=operator;
+		}else{
+			ris = parseInt(ris) * parseInt(newNum);
+			newNum = '';
+			bool = true;
+			document.getElementById("display").value=ris; 
+		}
+	}
+	if (operator === "="){
+		if (lastOp === "+"){
+			operation("+");
+			lastOp='=';
+		}
+		else if (lastOp === "-"){
+			operation("-");	 
+			lastOp='=';			
+		}
+		else if (lastOp === "/"){
+			operation("/");	
+			lastOp='=';
+		}
+		else if (lastOp === "*"){
+			operation("*");	
+			lastOp='=';
+		} 
+	}
+}
+
+function elevate(grade) { 
+base = eval(document.getElementById("display").value);
+gradeRif=base;
+	for (i = 1; i < grade; i++){
+		base = base * gradeRif;
+	}
+document.getElementById("display").value=base;
+}
+/*PER ORA SOLO CON NUMERI CHE TORNANO RADICE INTERA*/
+function radix(grade) { 
+base = eval(document.getElementById("display").value);
+var baseConfronto=1;
+var radRis='';
+	for (i = 2; i > 0; i++){
+		for (x = 0; x < grade; x++){
+			baseConfronto = baseConfronto * i;
+		}
+		if (baseConfronto==base){
+			radRis = i;
+			break;
+		}
+		baseConfronto=1;
+	}
+document.getElementById("display").value=radRis;
+}
+
+function deleteAll() { 
+	ris=0;
+	newNum='';
+	lastOp='';
+	bool=false;
+	document.getElementById("display").value=""; 
+}
+function cancella() { 
+	
+	document.getElementById("display").value=""; 
+}
+</script>
+
+</body>
+</html>
