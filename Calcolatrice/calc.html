@@ -1,0 +1,125 @@
+<html>
+<head>
+ <style>
+      body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+.tasto {
+            background-color: #a5cff3 ;
+            color: #175c97;
+            font-size: 22pt;
+            border: none;
+            margin: 4px 2px;
+            height: 40px;
+	    width: 76px;
+        }
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.uguale {
+            width: 208px;
+        }
+
+
+    </style>
+</head>
+
+<br>
+ <div class="content">
+   <input type="text" name="displayS" id="operazioniS" readonly="readonly" class="display">
+</div>
+<br>
+<table id="calc">
+  <tr>
+    <td id="t1" onclick="get(1)"class="tasto">1</td>
+    <td id="t2" onclick="get(2)"class="tasto">2</td>
+    <td id="t3" onclick="get(3)"class="tasto">3</td>
+    <td onclick="get('+')"class="tasto">+</td>
+  </tr>
+  <tr>
+    <td id="t4" onclick="get(4)" class="tasto">4</td>
+    <td id="t5" onclick="get(5)"class="tasto">5</td>
+    <td id="t6" onclick="get(6)"class="tasto">6</td>
+    <td onclick="get('-')"class="tasto">-</td>
+  </tr>
+  <tr>
+    <td id="t7" onclick="get(7)"class="tasto">7</td>
+    <td id="t8" onclick="get(8)"class="tasto">8</td>
+    <td id="t9" onclick="get(9)"class="tasto">9</td>
+    <td onclick="get('*')" class="tasto">x</td>
+  </tr>
+  <tr>
+    <td id="tAC" onclick="reset()" class="tasto">AC</td>
+    <td id="t0" onclick="get(0)" class="tasto">0 </td>
+    <td id="teq" onclick="risultato()" class="tasto">=</td>
+    <td onclick="get('/')" class="tasto">/</td>
+  </tr>
+  <tr>
+
+<script>
+var content=0;
+var cont=0;
+var t="";
+var f="";
+var t="";
+
+function get(valore){
+document.getElementById("operazioniS").value+=valore;
+if(valore === '+' || valore === '*' || valore === '/' || valore === '-'){
+cont++;
+
+	if(cont >1)
+	{
+	t=document.getElementById("operazioniS").value;
+	f=t.substring(0,t.length-1);
+		
+	let g=risultato(f);
+	var k=String(g)+String(valore);
+	document.getElementById("operazioniS").value;
+	cont=0;
+	}
+}
+
+}
+
+function reset(){
+document.getElementById("operazioniS").value="";
+}
+
+
+function risultato(string){
+ var c = document.getElementById("operazioniS").value;
+ if(cont > 1)
+ {
+ c=f;
+ }
+ if(c!=0){
+document.getElementById("operazioniS").value=eval(c);
+if(cont > 1)
+{
+content=eval(c);
+
+//document.getElementById("operazioniS").value=content;
+}
+content=eval(c);
+//document.write("W ",content);
+}
+cont=0;
+return content;
+}
+</script>
+</body>
+</html>
