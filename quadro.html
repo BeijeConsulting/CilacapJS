@@ -1,0 +1,68 @@
+<html>
+<head>
+<style>
+body {
+	margin: 0 0 0 0;
+}
+.sei {
+	background-color: #FF0000;
+	position: absolute;
+}
+</style>
+</head>
+<body onkeydown="getKeyCod()">
+<div id="sei" class="sei"></div>
+<script>
+const mov = 5;
+
+let sei = document.getElementById("sei");
+
+//JSON JavaScript Object Notation
+let props = {
+			  width: 100,
+			  height: 100
+			}
+
+function changeProps() {
+	sei.style.width = props.width + "px";
+	sei.style.height = props.height + "px";
+}
+
+changeProps();
+
+let left = 0;
+let t0p = 0;
+function getKeyCod() {
+	let key = window.event.keyCode;
+	console.log(key);
+	console.log(sei.offsetTop);	
+	console.log(sei.offsetLeft);
+	//187 +
+	//189 -
+	//37 38 39 40
+	if (key == 39) {
+		left += mov;
+		sei.style.left = left + "px";
+	} else if (key == 37) {
+		left -= mov;
+		sei.style.left = left + "px";
+	} else if (key == 38) {
+		t0p -= mov;
+		sei.style.top = t0p + "px";
+	} else if (key == 40) {
+		t0p += mov;
+		sei.style.top = t0p + "px";
+	} else if (key == 187) {
+		props.width += 10;
+		props.height += 10;
+		changeProps();
+	} else if (key == 189) {
+		props.width -= 10;
+		props.height -= 10;
+		changeProps();
+	}
+}
+</script>
+
+</body>
+</html>
