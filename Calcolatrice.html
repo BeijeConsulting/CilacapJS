@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      width: 300px;
+      margin: auto;
+      text-align: center;
+    }
+
+    table {
+      margin: auto;
+    }
+
+    td {
+      border-style: solid;
+      border-size: 1px;
+      width: 30px;
+      height: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>CALCULATOR</h2>
+
+  <h3 id="display">___</h3>
+
+  <table>
+    <tr>
+      <td id="t1" onclick="get(1)">1</td>
+      <td id="t2" onclick="get(2)">2</td>
+      <td id="t3" onclick="get(3)">3</td>
+      <td onclick="get('+')">+</td>
+    </tr>
+    <tr>
+      <td id="t4" onclick="get(4)">4</td>
+      <td id="t5" onclick="get(5)">5</td>
+      <td id="t6" onclick="get(6)">6</td>
+      <td onclick="get('-')">-</td>
+    </tr>
+    <tr>
+      <td id="t7" onclick="get(7)">7</td>
+      <td id="t8" onclick="get(8)">8</td>
+      <td id="t9" onclick="get(9)">9</td>
+      <td onclick="get('x')">x</td>
+    </tr>
+    <tr>
+      <td id="tAC" onclick="get('AC')">AC</td>
+      <td id="t0" onclick="get(0)">0</td>
+      <td id="tComma" onclick="get(',')">,</td>
+      <td onclick="get('/')">/</td>
+    </tr>
+    <tr>
+      <td id="teq" onclick="get('=')">=</td>
+    </tr>
+  </table>
+
+
+  <script>
+
+    var elemento = '';
+    var visualizza;
+    var risultato;
+    var operazione;
+
+
+    function get(valore) {
+      inserimento(valore);
+
+
+      document.getElementById("display").innerHTML = visualizza;
+
+    }
+
+    function inserimento(valore) {
+      if (valore != 'AC') {
+
+        if (valore == '+') {
+          somma();
+        } else if (valore == '-') {
+          sottrazione();
+        } else if (valore == 'x') {
+          moltiplicazione();
+        } else if (valore == '/') {
+          divisione();
+        } else if (valore == '=') {
+          uguale();
+        } else {
+          elemento += valore;
+          visualizza = elemento;
+        }
+      } else {
+        visualizza = '___'
+        elemento = '';
+        valore = 0;
+        risultato = 0;
+        operazione = '';
+      }
+    }
+
+    function somma() {
+      if (operazione == '-') {
+        risultato = parseInt(risultato) - parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '+';
+      } else if (operazione == 'x') {
+        risultato = parseInt(risultato) * parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '+';
+      } else if (operazione == '/') {
+        if (elemento != 0) {
+          risultato = parseInt(risultato) / parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+          operazione = '+';
+        }
+      } else if (operazione == '=') {
+        operazione = '+';
+      } else {
+        operazione = '+';
+        if (risultato == null) {
+          risultato = elemento;
+          elemento = '';
+        } else {
+          risultato = parseInt(risultato) + parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+        }
+      }
+    }
+
+    function sottrazione() {
+      if (operazione == '+') {
+        risultato = parseInt(risultato) + parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '-';
+      } else if (operazione == 'x') {
+        risultato = parseInt(risultato) * parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '-';
+      } else if (operazione == '/') {
+        if (elemento != 0) {
+          risultato = parseInt(risultato) / parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+          operazione = '-';
+        }
+      } else if (operazione == '=') {
+        operazione = '-';
+      } else {
+        operazione = '-';
+        if (risultato == null) {
+          risultato = elemento;
+          elemento = '';
+        } else {
+          risultato = parseInt(risultato) - parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+        }
+      }
+    }
+
+    function moltiplicazione() {
+      if (operazione == '+') {
+        risultato = parseInt(risultato) + parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = 'x';
+      } else if (operazione == '-') {
+        risultato = parseInt(risultato) - parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = 'x';
+      } else if (operazione == '/') {
+        if (elemento != 0) {
+          risultato = parseInt(risultato) / parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+          operazione = 'x';
+        }
+      } else if (operazione == '=') {
+        operazione = 'x';
+      } else {
+        operazione = 'x';
+        if (risultato == null) {
+          risultato = elemento;
+          elemento = '';
+        } else {
+          risultato = parseInt(risultato) * parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+        }
+      }
+    }
+
+    function divisione() {
+      if (operazione == '+') {
+        risultato = parseInt(risultato) + parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '/';
+      } else if (operazione == '-') {
+        risultato = parseInt(risultato) - parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '/';
+      } else if (operazione == 'x') {
+        risultato = parseInt(risultato) * parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+        operazione = '/';
+      } else if (operazione == '=') {
+        operazione = '/';
+      } else {
+        operazione = '/';
+        if (elemento != 0) {
+          if (risultato == null) {
+            risultato = elemento;
+            elemento = '';
+          } else {
+            risultato = parseInt(risultato) / parseInt(elemento);
+            elemento = '';
+            visualizza = risultato;
+          }
+        }
+      }
+    }
+
+    function uguale() {
+      if (operazione == '+') {
+        risultato = parseInt(risultato) + parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+      } else if (operazione == '-') {
+        risultato = parseInt(risultato) - parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+      } else if (operazione == 'x') {
+        risultato = parseInt(risultato) * parseInt(elemento);
+        elemento = '';
+        visualizza = risultato;
+      } else if (operazione == '/') {
+        if (elemento != 0) {
+          risultato = parseInt(risultato) / parseInt(elemento);
+          elemento = '';
+          visualizza = risultato;
+        }
+      }
+      operazione = '=';
+    }
+
+  </script>
+
+</body>
+
+</html>
