@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>CALCULATOR</h2>
+
+<h3 id="display">___</h3>
+
+<table>
+  <tr>
+    <td id="t1" onclick="get(1)">1</td>
+    <td id="t2" onclick="get(2)">2</td>
+    <td id="t3" onclick="get(3)">3</td>
+    <td onclick="get('+')">+</td>
+  </tr>
+  <tr>
+    <td id="t4" onclick="get(4)">4</td>
+    <td id="t5" onclick="get(5)">5</td>
+    <td id="t6" onclick="get(6)">6</td>
+    <td onclick="get('-')">-</td>
+  </tr>
+  <tr>
+    <td id="t7" onclick="get(7)">7</td>
+    <td id="t8" onclick="get(8)">8</td>
+    <td id="t9" onclick="get(9)">9</td>
+    <td onclick="get('x')">x</td>
+  </tr>
+  <tr>
+    <td id="tAC" onclick="get('AC')">AC</td>
+    <td id="t0" onclick="get(0)">0</td>
+    <td id="tComma" onclick="get(',')">,</td>
+    <td onclick="get('/')">/</td>
+  </tr>
+  <tr>
+	<td onclick="get('=')"> = </td>
+  </tr>
+	
+</table>
+
+
+<script>
+
+var number = '';
+var op = '';            //operator
+var support = 0;        
+var result = 0;
+
+function get(value) {
+
+  //Resets the calculation
+  if(value == 'AC') {
+	document.getElementById("display").innerHTML = '___';
+	number = '';
+	op = '';
+	result = 0;
+	support = 0;
+  }
+  
+  //Case in witch numbers are chosen
+  if(value != '+' && value != '-' && value != 'x' && value != '/' && value != '=' && value != 'AC') {
+    number = ''+number+value;
+	console.log(number);
+	document.getElementById("display").innerHTML = number;
+  }
+  
+  //Case in witch operators are chosen
+  if(value == '+' || value == '-' || value == 'x' || value == '/') {
+    if(result == 0) {
+      op = value;
+	  console.log(number+op);
+	  document.getElementById("display").innerHTML = number+op;
+	  support = parseInt(number);
+	  console.log(support);
+	  result = support;
+	  number = '';
+	}
+	//Continue calculations when a previous result is already obtained
+	else {
+	  op = value;
+	  console.log(result+op);
+	  document.getElementById("display").innerHTML = result+op;
+	  support = parseInt(result);
+	  console.log(support);
+	  result = support;
+	  number = '';
+	}
+  }
+  
+  //Calculation of results for each operator
+  if(value == '=') {
+    if(op == '+') {
+      support = parseInt(number);
+	  result = result+support;
+	  document.getElementById("display").innerHTML = result;
+      console.log(result);
+	}
+	if(op == '-') {
+      support = parseInt(number);
+	  result = result-support;
+	  document.getElementById("display").innerHTML = result;
+      console.log(result);
+	}
+	if(op == 'x') {
+      support = parseInt(number);
+	  result = result*support;
+	  document.getElementById("display").innerHTML = result;
+      console.log(result);
+	}
+	if(op == '/') {
+      support = parseInt(number);
+	  result = result/support;
+	  document.getElementById("display").innerHTML = result;
+      console.log(result);
+	}
+  }
+  
+}
+
+</script>
+
+</body>
+</html>
