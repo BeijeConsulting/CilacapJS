@@ -1,0 +1,128 @@
+<html>
+<head>
+<style>
+body {
+	margin: 0 0 0 0;
+	background-color: gainsboro;
+}
+.sei {
+	background-color: #FF0000;
+	position: absolute;
+	top: 250px;
+	left: 250px;
+}
+
+.rotondo{
+	background-color: Blue;
+	position: absolute;
+	top: 250px;
+	left: 500px;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.tre{
+	background-color: springgreen;
+	position: absolute;
+	top: 250px;
+	left: 750;
+	width: 100px;
+	height: 100px;
+}
+</style>
+</head>
+<body onkeydown="getKeyCod()">
+<div id="sei" class="sei" onmouseover="changeColorQ()" onmouseout="resetColorQ()"></div>
+
+<div id="rotondo" class="rotondo" onmousedown="changeColorR()" onmouseup="resetColorR()"></div>
+
+<div id="tre" class="tre" onmouseover="blurEff()" onmouseout="resetBlur()"></div>
+
+
+<script>
+const mov = 20;
+
+let sei = document.getElementById("sei");
+let rotondo = document.getElementById("rotondo");
+let tre = document.getElementById("tre");
+
+//JSON JavaScript Object Notation
+let props = {
+			  width: 100,
+			  height: 100,
+			  top: 250,
+			  left: 250
+			}
+
+function changeProps() {
+	sei.style.width = props.width + "px";
+	
+	sei.style.height = props.height + "px";
+}
+
+function changeColorQ(){
+	sei.style.backgroundColor = "Orange";
+}
+
+function resetColorQ(){
+	sei.style.backgroundColor = "Red";
+}
+
+function changeColorR(){
+	rotondo.style.backgroundColor = "Indigo";
+	rotondo.style.filter = "drop-shadow(0px 0px 20px DarkViolet)";
+}
+
+function resetColorR(){
+	rotondo.style.backgroundColor = "Blue";
+	rotondo.style.filter = "none"
+}
+
+function blurEff(){
+	tre.style.filter = "blur(5px)";
+}
+
+function resetBlur(){
+	tre.style.filter = "blur(0px)";
+}
+
+
+changeProps();
+
+let left = props.left;
+let t0p = props.top;
+function getKeyCod() {
+	let key = window.event.keyCode;
+	console.log(sei.style.top);	
+	console.log(sei.style.left);
+	//187 +
+	//189 -
+	//37 38 39 40
+	if (key == 39) {
+		left += mov;
+		sei.style.left = left + "px";
+	} else if (key == 37) {
+		left -= mov;
+		sei.style.left = left + "px";
+	} else if (key == 38) {
+		t0p -= mov;
+		sei.style.top = t0p + "px";
+	} else if (key == 40) {
+		t0p += mov;
+		sei.style.top = t0p + "px";
+	} else if (key == 187) {
+		props.width += 10;
+		props.height += 10;
+		changeProps();
+	} else if (key == 189) {
+		props.width -= 10;
+		props.height -= 10;
+		changeProps();
+	}
+}
+</script>
+
+</body>
+</html>
