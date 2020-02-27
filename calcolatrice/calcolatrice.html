@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<h2>CALCULATOR</h2>
+
+<h3 id="display">___</h3>
+
+<table>
+  <tr>
+    <td id="t1" onclick="get('1')">1</td>
+    <td id="t2" onclick="get('2')">2</td>
+    <td id="t3" onclick="get('3')">3</td>
+    <td onclick="get('+')">+</td>
+  </tr>
+  <tr>
+    <td id="t4" onclick="get('4')">4</td>
+    <td id="t5" onclick="get('5')">5</td>
+    <td id="t6" onclick="get('6')">6</td>
+    <td onclick="get('-')">-</td>
+  </tr>
+  <tr>
+    <td id="t7" onclick="get('7')">7</td>
+    <td id="t8" onclick="get('8')">8</td>
+    <td id="t9" onclick="get('9')">9</td>
+    <td onclick="get('x')">x</td>
+  </tr>
+  <tr>
+    <td id="tAC" onclick="get('AC')">AC</td>
+    <td id="t0" onclick="get('0')">0</td>
+    <td id="tComma" onclick="get(',')">,</td>
+	<td onclick="get('=')">=</td>
+    <td onclick="get('/')">/</td>
+  </tr>
+</table>
+
+
+<script>
+var somma=" ";
+var calcola=0;
+var sommetta =0;
+
+function get(valore) {
+	if(valore == '='){
+		console.log(sommetta);
+		document.getElementById("display").innerHTML = sommetta;
+	}else if (valore != 'AC'){
+	if(controllo(valore)==false){
+		somma = somma + valore;
+		document.getElementById("display").innerHTML = somma;
+		}else{
+		faicalcolo(valore);
+		document.getElementById("display").innerHTML = sommetta;
+		somma =" ";
+		}
+	}else{
+		somma=" ";
+		calcola=0;
+		sommetta =0;
+		document.getElementById("display").innerHTML = somma;
+		}
+  
+
+}
+function controllo(valore){
+	if(valore == '+' || valore=='-'|| valore=='x'||valore=='/')
+		return true;
+	else
+		return false;
+}
+function faicalcolo(valore){
+	if(valore=='+'){
+		calcola= parseInt(somma);
+		sommetta += calcola;
+	}
+	if(valore=='-'){
+		calcola= parseInt(somma);
+		sommetta -= calcola;
+	}
+	if(valore=='x'){
+		calcola= parseInt(somma);
+		if(sommetta==0)
+			sommetta= sommetta+1;
+		sommetta *= calcola;
+	}
+	if(valore=='/'){
+		calcola= parseInt(somma);
+		sommetta = sommetta / calcola;
+	}
+}
+</script>
+
+</body>
+</html>
