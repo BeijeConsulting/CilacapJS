@@ -3,29 +3,76 @@
 <style>
 body {
 	margin: 0 0 0 0;
+	background-color:#0000a0 ;
+	text-align:center;
 }
 .sei {
 	background-color: #FF0000;
-	position: absolute;
+	position: sticky;
+}
+
+.campo {
+	background-color: white;
+	width: 900px;
+	left:auto;
+	height: 500px;
+	position: relative;	  
+	display: inline-block;
+
+
+}
+
+.intestazione{
+	background-color:white;
+	color:#0000a0;
+	text-align: center;
+	height: auto;
+	
+}
+
+.campoblocchi{
 }
 </style>
 </head>
-<body onkeydown="getKeyCod()">
+<body onkeydown="getKeyCod()" >
+<div class="intestazione" > <h1>Gioco Clark </h1> </div>
+<div id="campo" class="campo" > 
+
+<!--<div style="position:absolute; bottom:0;width: 200px;left:inherit">-->
 <div id="sei" class="sei"></div>
+
+
+</div>
+
+
+
+
+
+
+
+
 <script>
 const mov = 5;
 
 let sei = document.getElementById("sei");
+let campo= document.getElementById("campo");
+
+function cambiaPosizione(){
+
+}
 
 //JSON JavaScript Object Notation
 let props = {
-			  width: 100,
-			  height: 100
-			}
+	  width: 5,
+	  height: 50
+	}
 
 function changeProps() {
+	
 	sei.style.width = props.width + "px";
 	sei.style.height = props.height + "px";
+	sei.style.left= campo.getAttribute("length");
+	console.log(campo.getAttribute("length"));
 }
 
 changeProps();
@@ -41,11 +88,11 @@ function getKeyCod() {
 	//189 -
 	//37 38 39 40
 	if (key == 39) {
-		left += mov;
-		sei.style.left = left + "px";
+	//	left += mov;
+	//  sei.style.left = left + "px";
 	} else if (key == 37) {
-		left -= mov;
-		sei.style.left = left + "px";
+		//left -= mov;
+		//sei.style.left = left + "px";
 	} else if (key == 38) {
 		t0p -= mov;
 		sei.style.top = t0p + "px";
