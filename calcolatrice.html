@@ -53,7 +53,7 @@ td {
     <td onclick="get('/')">/</td>
   </tr>
   <tr>
-	<td id="tEq" onclick="uguale()">=</td>
+	<td id="tEq" onclick="get('=')">=</td>
 </table>
 
 
@@ -81,101 +81,84 @@ function get(valore) {
 		document.getElementById("display").innerHTML = risultato;
 		console.log(risultato);
 	}
-	else{
-		
-		if((valore== '+' || valore == '*' || valore == '/' || valore == '-' ))
+	else
+	{
+		if(eq(valore))
 		{
-			/*if( valore == '=' )
+			if((array.includes('+') ||array.includes('-') || array.includes('*') || array.includes('/') || array.includes('=') ))
 			{
-				array.push(stringa);
-				uguale();
-			}*/
-			
-			array.push(stringa);
-			visual+=""+valore;
-			console.log("visual",visual);
-			document.getElementById("display").innerHTML = visual;
-			stringa ="";
-			operazione(valore);
-			
+				switch(valore){
+					case '+':	
+								stringa=array.join("");
+								console.log("str",stringa);
+								parziale=eval(stringa);
+								array.splice(0,array.length);
+								array.push(parziale);
+								array.push(valore);
+								console.log("array",array);
+								break;
+								
+									
+					case '-': 	
+								parziale=eval(array.join(""));
+								array.splice(0,array.length);
+								array.push(parziale);
+								array.push(valore);
+								console.log("array",array);
+								break;
+								
+					case '*':	parziale=eval(array.join(""));
+								array.splice(0,array.length);
+								array.push(parziale);
+								array.push(valore);
+								console.log("array",array);
+								break;
+				
+					case '/':	parziale=eval(array.join(""));
+								array.splice(0,array.length);
+								array.push(parziale);
+								array.push(valore);
+								console.log("array",array);
+								break;
+								
+					case '=':	parziale=eval(array.join(""));
+								array.splice(0,array.length);
+								array.push(parziale);
+								console.log("array",array);
+								
+								break;
+				}
+				document.getElementById("display").innerHTML = parziale+""+valore;
+				
+			}
+			else{
+				array.push(valore);
+				document.getElementById("display").innerHTML = valore;
+				}
 		}
 		else{
-			stringa += ""+valore;
-			console.log("stringa",stringa);
-			visual+=""+valore;
-			document.getElementById("display").innerHTML = visual;
+			array.push(valore);
+			document.getElementById("display").innerHTML = valore;
 		}
-	}
-	  
-  
-}
-function operazione(valore)
-{
-	console.log(array.length);
-	if(array.length<=1 && parziale==0 && u == 0)
-	{
-		simbolo=valore;
-		console.log("array",array);
-	}
-	else
-	{
-		
-		membro2=array.pop();
-		membro=array.pop();
-		if(risultato==0)
-		{
-			risultato=""+membro+simbolo+membro2;
-			simbolo=valore;
-			parziale=eval(risultato);
-			console.log("risultato",risultato);
-			array.unshift(parziale);
-		}
-		else
-		{
-			risultato=""+membro+simbolo+membro2;
-			simbolo=valore;
-			console.log(risultato);
-			parziale=eval(risultato);
-			console.log("membro2",membro2);
-			console.log("membro",membro);
-			array.unshift(parziale);
-		}
-		
-		document.getElementById("display").innerHTML = eval(risultato)+""+valore;
-		
 	}
 	
-
-}
-
-function uguale()
+	  
+  }
+ function eq(valore)
  {
-	//u++;
-	//operazione(simbolo);
-	//membro2=array.pop();
-	//membro=array.pop();
-	//membro=visual.substring(0,visual.indexOf(simbolo));
-	//membro2=visual.substring(visual.indexOf(simbolo)+1);
-	if(visual.length<=3)
-	{
-		risultato=eval(visual);
-		parziale=risultato;
-		console.log("membro2",membro2);
-		console.log("membro",membro);
-		console.log("risultato",risultato);
-		array.unshift(parziale);
-		document.getElementById("display").innerHTML = risultato;
-	}
-	else
-	{
-		membro2=array.pop();
-		membro=array.pop();
-		risultato=""+parziale+simbolo+membro2;
-		console.log("risultato",risultato);
-		parziale=eval(risultato);
-		document.getElementById("display").innerHTML = eval(risultato);
+	switch(valore){
+		case '+': return true;
+		case '-': return true;
+		case '*': return true;
+		case '/': return true;
+		case '=': return true;
+		default: return false;
 	}
  }
+ 
+
+
+
 
 
 </script>
