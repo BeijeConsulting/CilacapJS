@@ -53,7 +53,7 @@ td {
     <td onclick="get('/')">/</td>
   </tr>
   <tr>
-	<td id="tEq" onclick="get('=')">=</td>
+	<td id="tEq" onclick="uguale()">=</td>
 </table>
 
 
@@ -67,6 +67,8 @@ let array=[];
 let parziale="";
 let visual="";
 let simbolo;
+let membro;
+let membro2;
 function get(valore) {
 	if (valore == 'AC')
 	{
@@ -81,17 +83,17 @@ function get(valore) {
 	}
 	else{
 		
-		if((valore== '+' || valore == '*' || valore == '/' || valore == '-' || valore == '=' ) )
+		if((valore== '+' || valore == '*' || valore == '/' || valore == '-' ))
 		{
-			if( valore == '=' )
+			/*if( valore == '=' )
 			{
 				array.push(stringa);
 				uguale();
-			}
+			}*/
 			
 			array.push(stringa);
 			visual+=""+valore;
-			console.log("visual",stringa);
+			console.log("visual",visual);
 			document.getElementById("display").innerHTML = visual;
 			stringa ="";
 			operazione(valore);
@@ -117,8 +119,7 @@ function operazione(valore)
 	}
 	else
 	{
-		let membro;
-		let membro2;
+		
 		membro2=array.pop();
 		membro=array.pop();
 		if(risultato==0)
@@ -149,11 +150,31 @@ function operazione(valore)
 
 function uguale()
  {
-	u++;
-	operazione(simbolo);
-
-	
- 
+	//u++;
+	//operazione(simbolo);
+	//membro2=array.pop();
+	//membro=array.pop();
+	//membro=visual.substring(0,visual.indexOf(simbolo));
+	//membro2=visual.substring(visual.indexOf(simbolo)+1);
+	if(visual.length<=3)
+	{
+		risultato=eval(visual);
+		parziale=risultato;
+		console.log("membro2",membro2);
+		console.log("membro",membro);
+		console.log("risultato",risultato);
+		array.unshift(parziale);
+		document.getElementById("display").innerHTML = risultato;
+	}
+	else
+	{
+		membro2=array.pop();
+		membro=array.pop();
+		risultato=""+parziale+simbolo+membro2;
+		console.log("risultato",risultato);
+		parziale=eval(risultato);
+		document.getElementById("display").innerHTML = eval(risultato);
+	}
  }
 
 
