@@ -3,17 +3,16 @@
 <style>
 body {
 	margin: 0 0 0 0;
-	background-color: gainsboro;
+	background-color: Black;
 }
 .sei {
-	background-color: #FF0000;
+	background-color: Blue;
 	position: absolute;
 	top: 250px;
 	left: 250px;
 }
 
 .rotondo{
-	background-color: Blue;
 	position: absolute;
 	top: 250px;
 	left: 500px;
@@ -21,6 +20,10 @@ body {
 	height: 100px;
 	border-radius: 50%;
 	cursor: pointer;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 100px;
+	filter: drop-shadow(0px 0px 20px lime);
 }
 
 .tre{
@@ -28,15 +31,17 @@ body {
 	position: absolute;
 	top: 250px;
 	left: 750;
-	width: 100px;
+	width: 300px;
 	height: 100px;
 }
 </style>
 </head>
-<body onkeydown="getKeyCod()">
+<body id="body" onkeydown="getKeyCod()">
 <div id="sei" class="sei" onmouseover="changeColorQ()" onmouseout="resetColorQ()"></div>
 
-<div id="rotondo" class="rotondo" onmousedown="changeColorR()" onmouseup="resetColorR()"></div>
+<div style="background-color: lime" id="rotondo" class="rotondo" onclick="Neon()">
+	ON
+</div>
 
 <div id="tre" class="tre" onmouseover="blurEff()" onmouseout="resetBlur()"></div>
 
@@ -47,6 +52,7 @@ const mov = 20;
 let sei = document.getElementById("sei");
 let rotondo = document.getElementById("rotondo");
 let tre = document.getElementById("tre");
+let Body = document.getElementById("body");
 
 //JSON JavaScript Object Notation
 let props = {
@@ -58,26 +64,31 @@ let props = {
 
 function changeProps() {
 	sei.style.width = props.width + "px";
-	
 	sei.style.height = props.height + "px";
 }
 
 function changeColorQ(){
-	sei.style.backgroundColor = "Orange";
+	sei.style.backgroundColor = "DeepSkyBlue";
 }
 
 function resetColorQ(){
-	sei.style.backgroundColor = "Red";
+	sei.style.backgroundColor = "Blue";
 }
 
-function changeColorR(){
-	rotondo.style.backgroundColor = "Indigo";
-	rotondo.style.filter = "drop-shadow(0px 0px 20px DarkViolet)";
-}
+function Neon(){
+	if(rotondo.style.backgroundColor == "lime"){
+	rotondo.style.backgroundColor = "red";
+	rotondo.style.filter = "drop-shadow(0px 0px 20px red)";
+	rotondo.textContent = "OFF";
+	Body.style.backgroundColor = "gainsboro"
+	
+	} else {
+	rotondo.style.backgroundColor = "lime";
+	rotondo.style.filter = "drop-shadow(0px 0px 20px lime)";
+	rotondo.textContent = "ON";
+	Body.style.backgroundColor = "Black"
+	}
 
-function resetColorR(){
-	rotondo.style.backgroundColor = "Blue";
-	rotondo.style.filter = "none"
 }
 
 function blurEff(){
