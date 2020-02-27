@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  width: 300px;
+  margin: auto;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+td {
+  border-style: solid;
+  border-size: 1px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.tuguale{
+width:300px;
+}
+</style>
+</head>
+<body>
+
+<h2>CALCOLATRICE</h2><br>
+
+
+<input type ="text" id="display" readonly="readonly">
+
+<table>
+  <tr>
+    <td id="t1" onclick="get(1)">1</td>
+    <td id="t2" onclick="get(2)">2</td>
+    <td id="t3" onclick="get(3)">3</td>
+    <td id="so" onclick="get('+')">+</td>
+  </tr>
+  <tr>
+    <td id="t4" onclick="get(4)">4</td>
+    <td id="t5" onclick="get(5)">5</td>
+    <td id="t6" onclick="get(6)">6</td>
+    <td id="di" onclick="get('-')">-</td>
+  </tr>
+  <tr>
+    <td id="t7" onclick="get(7)">7</td>
+    <td id="t8" onclick="get(8)">8</td>
+    <td id="t9" onclick="get(9)">9</td>
+    <td id="mo" onclick="get('*')">*</td>
+  </tr>
+  <tr>
+    <td id="tAC" onclick="canc()">AC</td>
+    <td id="t0" onclick="get(0)">0</td>
+    <td id="tComma" onclick="get(',')">,</td>
+    <td id="dv" onclick="get('/')">/</td>
+  </tr>
+    <td id="tuguale" onclick="uguale()">=</td>
+</table>
+
+
+<script>
+
+var val;
+var contatore;
+var valsuDisp;
+var valst;
+
+
+function get(valore){
+
+document.getElementById("display").value+=valore;
+if(valore === '+' || valore === '-' || valore === '*' || valore === '/'){
+	contatore++;
+
+	if(contatore >1)
+	{
+	valsuDisp=document.getElementById("display").value;
+	valst=valsuDisp.substring(0,valsuDisp.length-1);
+		
+	var ris=risultato(valst);
+	var i=String(ris)+String(valore);
+	document.getElementById("display").value;
+	contatore=0;
+	}
+}
+
+}
+
+function uguale(){
+		var i = document.getElementById("display").value;
+		if(i!=0){
+		document.getElementById("display").value=eval(i);
+		
+		if(contatore > 1)
+		{
+		val=eval(i);
+
+		}
+		val=eval(i);
+		}
+		
+		return val;
+		contatore=0;
+}
+
+function canc(){
+
+document.getElementById("display").value="";
+}
+
+
+
+</script>
+
+</body>
+</html>
