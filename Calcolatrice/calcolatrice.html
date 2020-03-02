@@ -1,36 +1,39 @@
 <!DOCTYPE html>
 <!-- saved from url=(0101)file:///C:/Users/Padawan04/Downloads/Microsoft.SkypeApp_kzf8qxf38zg5c!App/All/calcolatrice%20(2).html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<html>
+<head>
+<meta http-equiv="Content-Type"
+	content="text/html; charset=windows-1252">
 <style>
 body {
-  width: auto;
-  margin: auto;
-  text-align: center;
+	width: auto;
+	margin: auto;
+	text-align: center;
 }
 
 td {
-  font-size: 30px;
-  color: #000;
-  border-radius: 5px;
-  background: #87CEFA;
-  border-size: 1px;
-  width: 70px;
-  height:70px;
-  text-align: center;
-  transition: background 0.5s;
+	font-size: 30px;
+	color: #000;
+	border-radius: 5px;
+	background: #87CEFA;
+	border-size: 1px;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	transition: background 0.5s;
 }
 
 td:hover {
-  border-radius: 5px;
-  font-size: 30px;
-  color: #fff;
-  cursor: pointer;
-  background: #1E90FF;
-  border-size: 1px;
-  width: 70px;
-  height:70px;
-  text-align: center;
-  text-weight: bold;
+	border-radius: 5px;
+	font-size: 30px;
+	color: #fff;
+	cursor: pointer;
+	background: #1E90FF;
+	border-size: 1px;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	text-weight: bold;
 }
 
 .myDisplay {
@@ -47,220 +50,228 @@ table {
 }
 
 .operatori {
-  font-size: 30px;
-  color: #fff;
-  border-radius: 5px;
-  background: #1E90FF;
-  border-size: 1px;
-  width: 100%;
-  height:50px;
-  text-align: center;
-  transition: background 0.5s;
-  font-size: 40px;
+	font-size: 30px;
+	color: #fff;
+	border-radius: 5px;
+	background: #1E90FF;
+	border-size: 1px;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	transition: background 0.5s;
+	font-size: 40px;
 }
 
 .operatori:hover {
-  font-size: 30px;
-  color: #000;
-  border-radius: 5px;
-  background: #87CEFA;
-  border-size: 1px;
-  width: 100%;
-  height:50px;
-  text-align: center;
-  transition: background 0.5s;
-  font-size: 40px;
-  text-weight: bold;
-  cursor: pointer;
+	font-size: 30px;
+	color: #000;
+	border-radius: 5px;
+	background: #87CEFA;
+	border-size: 1px;
+	width: 100%;
+	height: 50px;
+	text-align: center;
+	transition: background 0.5s;
+	font-size: 40px;
+	text-weight: bold;
+	cursor: pointer;
 }
 
 .operatoriAritm {
-  font-size: 30px;
-  color: #fff;
-  border-radius: 5px;
-  background: #1E90FF;
-  border-size: 1px;
-  width: 70px;
-  height:70px;
-  text-align: center;
-  transition: background 0.5s;
-  font-size: 40px;
+	font-size: 30px;
+	color: #fff;
+	border-radius: 5px;
+	background: #1E90FF;
+	border-size: 1px;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	transition: background 0.5s;
+	font-size: 40px;
 }
 
 .operatoriAritm:hover {
-  font-size: 30px;
-  color: #000;
-  border-radius: 5px;
-  background: #87CEFA;
-  border-size: 1px;
-  width: 70px;
-  height:70px;
-  text-align: center;
-  transition: background 0.5s;
-  font-size: 40px;
-  text-weight: bold;
-  cursor: pointer;
+	font-size: 30px;
+	color: #000;
+	border-radius: 5px;
+	background: #87CEFA;
+	border-size: 1px;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	transition: background 0.5s;
+	font-size: 40px;
+	text-weight: bold;
+	cursor: pointer;
 }
 </style>
 </head>
 <body>
 
 
-<h2>Calcolatrice</h2>
-<div style="margin: auto; width: 290px; border: 2px solid #000; border-radius: 5px; padding: 5px; background: #fff; box-shadow: 5px 5px 10px #888;">
-<div class="myDisplay">
-	<span id="parziale" style="height: 30px;"></span>
-	<br>
-	<span style="font-size: 30px; font-weight: bold; color: #000; font-family: MS PGothic;" id="display">_</span>
-</div>
-<br>
-<table>
-  <tbody>
-  <tr>
-    <td id="t1" onclick="digita(1)">1</td>
-    <td id="t2" onclick="digita(2)">2</td>
-    <td id="t3" onclick="digita(3)">3</td>
-    <td class="operatoriAritm" onclick="operatore('+')">+</td>
-  </tr>
-  <tr>
-    <td id="t4" onclick="digita(4)">4</td>
-    <td id="t5" onclick="digita(5)">5</td>
-    <td id="t6" onclick="digita(6)">6</td>
-    <td class="operatoriAritm" onclick="operatore('-')">-</td>
-  </tr>
-  <tr>
-    <td id="t7" onclick="digita(7)">7</td>
-    <td id="t8" onclick="digita(8)">8</td>
-    <td id="t9" onclick="digita(9)">9</td>
-    <td class="operatoriAritm" onclick="operatore('x')">x</td>
-  </tr>
-  <tr>
-    <td class="operatoriAritm"  id="tAC" onclick="reset()">AC</td>
-    <td id="t0" onclick="digita(0)">0</td>
-    <td id="tComma" onclick="digita('.')">,</td>
-    <td class="operatoriAritm" onclick="operatore('/')">/</td>
-  </tr>
-</tbody></table>
-	<div style="padding: 7px;"><div onclick="uguale('=')" class="operatori">=</div></div>
-</div>
-<script>
+	<h2>Calcolatrice</h2>
+	<div
+		style="margin: auto; width: 290px; border: 2px solid #000; border-radius: 5px; padding: 5px; background: #fff; box-shadow: 5px 5px 10px #888;">
+		<div class="myDisplay">
+			<span id="parziale" style="height: 30px;"></span> <br> <span
+				style="font-size: 30px; font-weight: bold; color: #000; font-family: MS PGothic;"
+				id="display">_</span>
+		</div>
+		<br>
+		<table>
+			<tbody>
+				<tr>
+					<td id="t1" onclick="digita(1)">1</td>
+					<td id="t2" onclick="digita(2)">2</td>
+					<td id="t3" onclick="digita(3)">3</td>
+					<td class="operatoriAritm" onclick="operatore('+')">+</td>
+				</tr>
+				<tr>
+					<td id="t4" onclick="digita(4)">4</td>
+					<td id="t5" onclick="digita(5)">5</td>
+					<td id="t6" onclick="digita(6)">6</td>
+					<td class="operatoriAritm" onclick="operatore('-')">-</td>
+				</tr>
+				<tr>
+					<td id="t7" onclick="digita(7)">7</td>
+					<td id="t8" onclick="digita(8)">8</td>
+					<td id="t9" onclick="digita(9)">9</td>
+					<td class="operatoriAritm" onclick="operatore('x')">x</td>
+				</tr>
+				<tr>
+					<td class="operatoriAritm" id="tAC" onclick="reset()">AC</td>
+					<td id="t0" onclick="digita(0)">0</td>
+					<td id="tComma" onclick="digita('.')">,</td>
+					<td class="operatoriAritm" onclick="operatore('/')">/</td>
+				</tr>
+			</tbody>
+		</table>
+		<div style="padding: 7px;">
+			<div onclick="uguale('=')" class="operatori">=</div>
+		</div>
+	</div>
+	<script>
+		var numero;
+		var parziale;
+		var op;
+		var ris;
 
-var numero;
-var parziale;
-var op;
-var ris;
+		var cursore = 0;
 
-var cursore = 0;
-
-	function digita(n){
-		if(numero === undefined) {
-			numero = n;
-		} else {
-			numero += "" +  n;
+		function digita(n) {
+			if (numero === undefined) {
+				numero = n;
+			} else {
+				numero += "" + n;
+			}
+			document.getElementById("display").style.color = "#000";
+			document.getElementById("display").innerHTML = numero;
 		}
-		document.getElementById("display").style.color = "#000";
-		document.getElementById("display").innerHTML = numero;
-	}
-	
-	function operatore(o) {
-		if(parziale !== undefined || numero !== undefined) {
-			if(document.getElementById("parziale").innerHTML[document.getElementById("parziale").innerHTML.length - 1] === "=") {
+
+		function operatore(o) {
+			if (parziale !== undefined || numero !== undefined) {
+				if (document.getElementById("parziale").innerHTML[document
+						.getElementById("parziale").innerHTML.length - 1] === "=") {
 					op = o;
-					document.getElementById("parziale").innerHTML = document.getElementById("display").innerHTML + " " + op;
+					document.getElementById("parziale").innerHTML = document
+							.getElementById("display").innerHTML
+							+ " " + op;
 					parziale = document.getElementById("display").innerHTML;
 					numero = undefined;
-			} else {
-				if(op === undefined && numero !== undefined) {
-					op = o;
-					if(numero !== undefined && parziale === undefined) {
-						parziale = numero;
-						document.getElementById("parziale").innerHTML = " ";
-					} else {
-						if(parziale === undefined && document.getElementById("display").innerHTML != "") {
-							parziale = document.getElementById("display").innerHTML;
+				} else {
+					if (op === undefined && numero !== undefined) {
+						op = o;
+						if (numero !== undefined && parziale === undefined) {
+							parziale = numero;
+							document.getElementById("parziale").innerHTML = " ";
+						} else {
+							if (parziale === undefined
+									&& document.getElementById("display").innerHTML != "") {
+								parziale = document.getElementById("display").innerHTML;
+							}
 						}
+						document.getElementById("parziale").innerHTML = parziale
+								+ " " + op;
+
+						numero = undefined;
+					} else {
+						document.getElementById("display").innerHTML = risultato();
+						parziale = risultato();
+						op = o;
+						document.getElementById("parziale").innerHTML += " "
+								+ numero + " " + op
+						numero = undefined;
 					}
-					document.getElementById("parziale").innerHTML = parziale + " " + op;
-					
-					numero = undefined;
-				} else {			
-					document.getElementById("display").innerHTML = risultato();
-					parziale = risultato();
-					op = o;
-					document.getElementById("parziale").innerHTML += " " + numero + " " + op
-					numero = undefined;
 				}
 			}
 		}
-	}
-	
-	function risultato() {
-		
-		if(parziale !== undefined && numero !== undefined) {
-		
-			if(op == '+')
-				ris = somma(parziale, numero);
-			if(op == '-')
-				ris = sottrazione(parziale, numero);
-			if(op == 'x')
-				ris = mul(parziale, numero);
-			if(op == '/')
-				ris = div(parziale, numero);
-			return ris;
-		} else {
-			return "";
-		}
-	}
-	
-	function uguale() {
-		if(parziale !== undefined || numero !== undefined) {
-			let ris = risultato();
-			document.getElementById("display").innerHTML = ris;
-			document.getElementById("parziale").innerHTML += " " + numero + " =";
-		}
-	}
-	
-	
-	function reset() {
-		document.getElementById("display").innerHTML = "_";
-		document.getElementById("parziale").innerHTML = " ";
-		numero = undefined;
-		document.getElementById("display").style.color = "#000";
-		op = undefined;
-		ris = undefined;
-		parziale = undefined;
-	}
-	
-	function somma(p, n) {
-		return Number(p) + Number(n);
-	}
-	
-	function sottrazione(p, n) {
-		return Number(p) - Number(n);
-	}
-	
-	function mul(p, n) {
-		return Number(p) * Number(n);
-	}
-	
-	function div(p, n) {
-		return Number(p) / Number(n);
-	}
-	
-	function cursoreLampeggiate() {
-		if(document.getElementById("display").innerHTML === '_') { 
-			if (cursore === 0) {
-				document.getElementById("display").style.color = "#fff";
-				cursore = 1;
+
+		function risultato() {
+
+			if (parziale !== undefined && numero !== undefined) {
+
+				if (op == '+')
+					ris = somma(parziale, numero);
+				if (op == '-')
+					ris = sottrazione(parziale, numero);
+				if (op == 'x')
+					ris = mul(parziale, numero);
+				if (op == '/')
+					ris = div(parziale, numero);
+				return ris;
 			} else {
-				document.getElementById("display").style.color = "#000";
-				cursore = 0;
+				return "";
 			}
 		}
-	}
-	
-	window.setInterval("cursoreLampeggiate()", 500);
-	
-</script>
+
+		function uguale() {
+			if (parziale !== undefined || numero !== undefined) {
+				let ris = risultato();
+				document.getElementById("display").innerHTML = ris;
+				document.getElementById("parziale").innerHTML += " " + numero
+						+ " =";
+			}
+		}
+
+		function reset() {
+			document.getElementById("display").innerHTML = "_";
+			document.getElementById("parziale").innerHTML = " ";
+			numero = undefined;
+			document.getElementById("display").style.color = "#000";
+			op = undefined;
+			ris = undefined;
+			parziale = undefined;
+		}
+
+		function somma(p, n) {
+			return Number(p) + Number(n);
+		}
+
+		function sottrazione(p, n) {
+			return Number(p) - Number(n);
+		}
+
+		function mul(p, n) {
+			return Number(p) * Number(n);
+		}
+
+		function div(p, n) {
+			return Number(p) / Number(n);
+		}
+
+		function cursoreLampeggiate() {
+			if (document.getElementById("display").innerHTML === '_') {
+				if (cursore === 0) {
+					document.getElementById("display").style.color = "#fff";
+					cursore = 1;
+				} else {
+					document.getElementById("display").style.color = "#000";
+					cursore = 0;
+				}
+			}
+		}
+
+		window.setInterval("cursoreLampeggiate()", 500);
+	</script>
 </body>
 </html>
