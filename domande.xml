@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><domande><domanda book="libro" chapter="1" question="2"><testo> testoooo</testo><risposte type="radio"><risposta value="A"> a </risposta><risposta value="B"> c</risposta><risposta value="C"> b</risposta></risposte><risposteEsatte>c</risposteEsatte><spiegazione> ssssssssssssssss</spiegazione></domanda></domande>
