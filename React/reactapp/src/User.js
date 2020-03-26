@@ -6,7 +6,7 @@ export default class User extends React.Component{
                 <div id={this.props.id} className="User" onClick={getUser}>
                     <p> 
                     User {this.props.name}
-                    </p>   
+                    </p>  
                 </div>
         );
     };
