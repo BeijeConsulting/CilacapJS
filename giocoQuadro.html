@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Gioco Quadro</title>
+<style>
+.area {
+	background-color: #bed6ff;
+	position: absolute;
+}
+
+.block {
+
+}
+
+.player {
+	background-color: #FF0000;
+	position: relative;
+}
+
+
+</style>
+</head>
+<body onkeydown="movePlayer()">
+<div id="area" class="area" style="width: 1200px;height: 500px">
+	<div id="player" class="player"></div>
+</div>
+
+<script >
+	const unit = 10;
+	var area = document.getElementById("area");
+	var p = document.getElementById("player");
+	
+	let hStart = 20;
+	let vStart = 20;
+
+	p.style.top = hStart + "px";
+	p.style.left = vStart + "px";
+	p.style.width = 80 + "px";
+	p.style.height = 80 + "px";
+	
+	function verificaScontro(){}
+	
+	function moveBlocks(){}
+	
+	function movePlayer(){
+		let key = window.event.keyCode;
+		console.log(key);
+		if (key == 38 && vStart-unit>=0) {
+			vStart -= unit;
+			console.log(vStart);
+			player.style.top = vStart + "px";
+		} else if (key == 40 && vStart-unit<=area.offsetheight-p.offsetheight) {
+			vStart += unit;
+			console.log(vStart);
+			player.style.top = vStart + "px";
+		}
+	}
+</script>
+</body>
+</html>
